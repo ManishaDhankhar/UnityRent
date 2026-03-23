@@ -8,17 +8,11 @@ import StartButton from './StartButton';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 
+
 function HomePage() {
     return ( 
         <>
           <Navbar/>
-          <Hero/>
-          <Working/>
-          <Secure/>
-          <FeaturedItems/>
-          <Quote/>
-          <StartButton/>
-          <Footer/>
         </>
      );
 }
