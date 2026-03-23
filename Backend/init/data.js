@@ -226,4 +226,4 @@ const sampleProducts = [
     }
 ];
 
-module.exports = sampleProducts;
+module.exports = {data:sampleProducts};

@@ -9,10 +9,18 @@ import Footer from '../Footer';
 import Navbar from '../Navbar';
 
 
-function HomePage() {
+function HomePage({ allProducts }) {
     return ( 
         <>
-          <Navbar/>
+          <Navbar />
+          <Hero />
+          {/* We pass the data into FeaturedItems so it can show the cards */}
+          <FeaturedItems items={allProducts} />
+          <Working />
+          <Secure />
+          <Quote />
+          <StartButton />
+          <Footer />
         </>
      );
 }
