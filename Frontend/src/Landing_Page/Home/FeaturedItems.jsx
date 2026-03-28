@@ -1,10 +1,14 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 function FeaturedItems({ items }) {
+  const navigate=useNavigate();
+const goToNewPage=()=>{
+  navigate("/about");
+}
   if (!items || items.length === 0) return <div style={{ textAlign: 'center', padding: '50px' }}>Loading...</div>;
-
   return (
-    <section style={{ padding: '60px 5%', backgroundColor: '#f9f9f9', fontFamily: 'sans-serif' }}>
+    <section style={{ padding: '30px 5%', backgroundColor: '#f9f9f9', fontFamily: 'sans-serif' }}>
       
       {/* Header Section */}
       <div style={{ marginBottom: '40px' }}>
@@ -18,29 +22,6 @@ function FeaturedItems({ items }) {
             </select>
             <button style={{ backgroundColor: '#002d5b', color: 'white', border: 'none', padding: '10px 14px', borderRadius: '8px', cursor: 'pointer' }}>☰</button>
           </div>
-        </div>
-
-        {/* Category Pills */}
-        <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '10px', scrollbarWidth: 'none' }}>
-          {['Study Materials', 'Tech', 'Sports Gear', 'Household', 'Cycles', 'Events'].map((cat, i) => (
-            <button 
-              key={cat} 
-              className={i === 0 ? "category-pill active" : "category-pill"}
-              style={{ 
-                padding: '10px 22px', 
-                borderRadius: '25px', 
-                border: 'none', 
-                fontWeight: '600', 
-                fontSize: '0.9rem', 
-                cursor: 'pointer', 
-                whiteSpace: 'nowrap', 
-                transition: '0.3s ease',
-                // Remove static background/color here so CSS classes can handle them
-              }}
-            >
-              {cat}
-            </button>
-          ))}
         </div>
       </div>
 
@@ -125,6 +106,7 @@ function FeaturedItems({ items }) {
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
         <button 
           className="explore-more-btn"
+          onClick={goToNewPage}
           style={{ padding: '16px 45px', borderRadius: '40px', backgroundColor: 'white', color: '#002d5b', border: '2px solid #002d5b', fontSize: '1rem', fontWeight: '800', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px', transition: 'all 0.3s ease', boxShadow: '0 4px 15px rgba(0, 45, 91, 0.05)' }}
         >
           Explore More <span style={{ fontSize: '1.2rem' }}>→</span>
