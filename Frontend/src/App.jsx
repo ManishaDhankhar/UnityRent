@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Navbar from './Landing_Page/Navbar'
 import HomePage from './Landing_Page/Home/HomePage'
-
+import About from './ShowProduct/About';
+import Footer from './Landing_Page/Footer';
 
 function App() {
 
@@ -19,9 +22,25 @@ function App() {
   },[]);
 
   return (
-    <div>
-     <HomePage allProducts={products}/>
-    </div>
+    <Router>
+      <div className="App">
+        {/* If you have a Navbar, put it here so it shows on every page */}
+        <Navbar></Navbar>
+        
+        <Routes>
+          {/* 1. This is your HOME page (the default view) */}
+          <Route path="/" element={<HomePage allProducts={products.slice(0,4)} />} />
+
+          {/* 2. This is the ABOUT/ShowProduct page */}
+          <Route path="/about" element={<About allProducts={products}/>} />
+
+          {/* 3. Optional: Add more routes here later */}
+        </Routes>
+
+        {/* If you have a Footer, put it here */}
+        <Footer></Footer>
+      </div>
+    </Router>
   )
 }
 

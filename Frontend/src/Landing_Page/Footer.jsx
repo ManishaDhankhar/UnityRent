@@ -17,9 +17,9 @@ const Footer = () => {
           </p>
           <div className="flex gap-4 mt-2">
             {/* Social Icons Placeholder */}
-            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#eaece4] hover:text-black cursor-pointer transition-colors"><i class="fa-brands fa-facebook"></i></div>
-            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#eaece4] hover:text-black cursor-pointer transition-colors"><i class="fa-brands fa-twitter"></i></div>
-            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#eaece4] hover:text-black cursor-pointer transition-colors"><i class="fa-brands fa-instagram"></i></div>
+            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#eaece4] hover:text-black cursor-pointer transition-colors"><i className="fa-brands fa-facebook"></i></div>
+            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#eaece4] hover:text-black cursor-pointer transition-colors"><i className="fa-brands fa-twitter"></i></div>
+            <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#eaece4] hover:text-black cursor-pointer transition-colors"><i className="fa-brands fa-instagram"></i></div>
           </div>
         </div>
 

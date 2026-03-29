@@ -1,0 +1,66 @@
+/* Navbar.css */
+
+.navbar-main {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  padding: 5px 0;
+}
+
+.toolbar-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  font-weight: 800 !important;
+  color: #002d5b !important;
+  text-decoration: none;
+  font-size: 1.5rem !important;
+  margin-right: 40px; /* Space after logo */
+}
+
+/* THE SEARCH BAR ALIGNMENT */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f1f3f4;
+  border-radius: 24px;
+  padding: 5px 12px;
+  margin-left: 150px;
+  width: 100%;
+  max-width: 400px; /* Controlled width */
+  transition: all 0.2s ease;
+}
+
+.search-wrapper:focus-within {
+  background-color: #ffffff;
+  box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+}
+
+.search-icon-box {
+  color: #5f6368;
+  margin-right: 10px;
+  display: flex;
+}
+
+.search-field {
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+/* NAV LINKS ALIGNMENT */
+.nav-item-link {
+  color: #3c4043 !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  padding: 6px 12px !important;
+  
+  border-radius: 4px !important;
+}
+
+.nav-item-link:hover {
+  background-color: rgba(0, 123, 255, 0.04) !important;
+  color: #007bff !important;
+}

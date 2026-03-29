@@ -1,160 +1,87 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import { AppBar, Box, Toolbar, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem, InputBase, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import SearchIcon from '@mui/icons-material/Search';
+import './Navbar.css';
 
-const pages = ['Home', 'Browse', 'About', 'Signin'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Browse', 'About Us', 'Contact'];
+const settings = ['Profile', 'My Rentals', 'Logout'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static" sx={{ bgcolor: '#0b0b45', color: '#ffffff' }}>
+    <AppBar position="sticky" className="navbar-main">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 6,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 800,
-              letterSpacing: '.1rem',
-              color: 'white',
-              borderRadius: 2,
-              textDecoration: 'none',
-            }}
-          >
-            UnityRent
-          </Typography>
+        <Toolbar disableGutters className="toolbar-flex">
+          
+          {/* 1. LOGO SECTION */}
+          <div className="logo-section">
+            <Typography variant="h6" noWrap component="a" href="/" className="brand-logo">
+               UnityRent
+            </Typography>
+          </div>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            UnityRent
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {/* 2. SEARCH SECTION  */}
+          <div className="search-wrapper">
+            <div className="search-icon-box">
+              <SearchIcon fontSize="small" />
+            </div>
+            <InputBase
+              placeholder="Search items..."
+              className="search-field"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+
+          {/* 3. SPACER  */}
+          <Box sx={{ flexGrow: 0.1 }} />
+
+          {/* 4. NAV LINKS SECTION */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '20px', mr: 4 }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              <Button key={page} className="nav-item-link">
                 {page}
               </Button>
             ))}
           </Box>
+
+          {/* 5. USER PROFILE */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton onClick={(e) => setAnchorElUser(e.currentTarget)} sx={{ p: 0 }}>
+                <Avatar alt="User" sx={{ width: 35, height: 35, bgcolor: '#ddd', fontSize: '1rem', color: '#555' }}>U</Avatar>
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser} // menu stick to the Avatar
+                  anchorOrigin={{
+                   vertical: 'top',
+                   horizontal: 'right',
+                 }}
+                 keepMounted
+                 transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                 }}
+                open={Boolean(anchorElUser)} //  the menu is open
+                onClose={() => setAnchorElUser(null)} // Closes the menu 
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+             {settings.map((setting) => (
+             <MenuItem key={setting} onClick={() => setAnchorElUser(null)}>
+             <Typography sx={{ textAlign: 'center', px: 2 }}>{setting}</Typography>
+            </MenuItem>
+             ))}
+          </Menu>
           </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
 export default Navbar;

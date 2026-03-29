@@ -5,8 +5,6 @@ import Secure from './Secure';
 import FeaturedItems from './FeaturedItems';
 import Quote from './Quote';
 import StartButton from './StartButton';
-import Footer from '../Footer';
-import Navbar from '../Navbar';
 import WhyChose from './WhyChoose';
 import CallToAction from './CallToAction';
 
@@ -14,7 +12,6 @@ import CallToAction from './CallToAction';
 function HomePage({ allProducts }) {
     return ( 
         <>
-          <Navbar />
           <Hero />
           {/* We pass the data into FeaturedItems so it can show the cards */}
           <FeaturedItems items={allProducts} />
@@ -24,7 +21,6 @@ function HomePage({ allProducts }) {
           <Quote />
           <StartButton />
           <CallToAction/>
-          <Footer />
         </>
      );
 }

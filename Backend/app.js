@@ -1,15 +1,20 @@
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
 const express=require("express");
 const cors=require("cors"); // middleware which help in make frontend backend connection without blocking frontend
 const app=express();
 const mongoose=require("mongoose");
+const Banner=require("./model/banner");
 const Product=require("./model/product");
 
-const port=8080;
+const PORT=process.env.PORT || 8080;
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/UnityRental');
-
+  const Mongo=process.env.MongoURL;
+  await mongoose.connect(Mongo);
 }
+
 main().then((req,res)=>{
     console.log("working");
 })
@@ -45,6 +50,20 @@ app.get("/",(req,res)=>{
     res.send("working");
 })
 
+
+app.get("/api/hero", async (req, res) => {
+    try {
+        const heroData = await Banner.findOne({ isActive: true });
+        
+        if (!heroData) {
+            return res.status(404).json({ message: "No active banner found" });
+        }
+        res.status(200).json(heroData);
+    } catch (err) {
+        console.error("Hero API Error:", err);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
 app.get("/api/products",async(req,res)=>{
     try{
        const allProduct=await Product.find({});
@@ -67,6 +86,6 @@ app.get("/api/product/:id",async(req,res)=>{
 })
 
 
-app.listen(port,()=>{
+app.listen(PORT,()=>{
     console.log("app is listening the port:8080");
 })
