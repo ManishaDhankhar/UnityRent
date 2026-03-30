@@ -1,4 +1,3 @@
-
 const features = [
   {
     title: "Verified Users",
@@ -23,7 +22,8 @@ const FeatureCard = ({ title, description, icon }) => (
     <div className="w-14 h-14 bg-[#FFD700] border-[3px] border-black rounded-full flex items-center justify-center text-3xl mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
       {icon}
     </div>
-    
+
+ 
     <h3 className="text-2xl font-black mb-3 text-black tracking-tight">{title}</h3>
     <p className="text-gray-600 font-medium leading-relaxed">{description}</p>
   </div>

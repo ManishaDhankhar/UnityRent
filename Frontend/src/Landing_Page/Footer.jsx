@@ -27,10 +27,10 @@ const Footer = () => {
         <div>
           <h4 className="font-bold mb-6 text-lg">Platform</h4>
           <ul className="space-y-4 text-gray-400 text-sm">
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Browse Items</li>
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">How it Works</li>
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Verification</li>
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Pricing</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Browse Items</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">How it Works</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Verification</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Pricing</li>
           </ul>
         </div>
 
@@ -38,10 +38,10 @@ const Footer = () => {
         <div>
           <h4 className="font-bold mb-6 text-lg">Support</h4>
           <ul className="space-y-4 text-gray-400 text-sm">
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Help Center</li>
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Safety Rules</li>
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Terms of Service</li>
-            <li className="hover:text-[#D9FF30] cursor-pointer transition-colors">Privacy Policy</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Help Center</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Safety Rules</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Terms of Service</li>
+            <li className="hover:text-[#eaece4] cursor-pointer transition-colors">Privacy Policy</li>
           </ul>
         </div>
 
@@ -53,9 +53,9 @@ const Footer = () => {
             <input 
               type="email" 
               placeholder="Email address" 
-              className="bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-[#D9FF30]"
+              className="bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-[#eaece4]"
             />
-            <button className="bg-[#D9FF30] text-black font-bold py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+            <button className="bg-[#eaece4] text-black font-bold py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
               Subscribe
             </button>
           </div>
