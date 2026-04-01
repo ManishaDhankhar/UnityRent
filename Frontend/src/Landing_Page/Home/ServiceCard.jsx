@@ -14,6 +14,7 @@
 //         <span className="text-yellow-500 font-semibold">
 //           ★ {service.rating}
 //         </span>
+
 //       </div>
 //       <h3 className="text-xl font-bold">{service.serviceName}</h3>
 //       <p className="text-gray-600 text-sm line-clamp-2">{service.description}</p>
