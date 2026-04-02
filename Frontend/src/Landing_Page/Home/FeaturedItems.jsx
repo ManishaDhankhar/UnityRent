@@ -6,6 +6,9 @@ function FeaturedItems({ items }) {
 const goToNewPage=()=>{
   navigate("/about");
 }
+const handleCardClick=(item_id)=>{
+  navigate(`/item/${item_id}`);
+}
   if (!items || items.length === 0) return <div style={{ textAlign: 'center', padding: '50px' }}>Loading...</div>;
   return (
     <section style={{ padding: '30px 5%', backgroundColor: '#f9f9f9', fontFamily: 'sans-serif' }}>
@@ -30,8 +33,10 @@ const goToNewPage=()=>{
         {items.map((item, index) => (
           <div 
             key={item._id} 
+            onClick={()=>handleCardClick(item._id)}
             className="rental-card-animate"
             style={{
+              cursor:'pointer',
               backgroundColor: 'white',
               borderRadius: '35px',
               padding: '20px',
