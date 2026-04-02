@@ -4,7 +4,9 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Navbar from './Landing_Page/Navbar'
 import HomePage from './Landing_Page/Home/HomePage'
+import IteamDetails from './Landing_Page/Home/IteamDetails';
 import About from './ShowProduct/About';
+import BookItem from './Landing_Page/Home/BookItem';
 import Footer from './Landing_Page/Footer';
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
           <Route path="/about" element={<About allProducts={products}/>} />
 
           {/* 3. Optional: Add more routes here later */}
+          <Route path='/item/:id' element={<IteamDetails/>} />
+          <Route path='/book/:id' element={<BookItem/>} />
         </Routes>
 
         {/* If you have a Footer, put it here */}
