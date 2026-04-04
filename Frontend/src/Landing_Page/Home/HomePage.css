@@ -1,0 +1,18 @@
+.services-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.services-grid {
+  display: grid;
+  /* This creates 3 columns on desktop, 1 on mobile */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
