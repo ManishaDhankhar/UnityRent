@@ -9,7 +9,7 @@ const Banner=require("./model/banner");
 const Product=require("./model/product");
 const Service = require("./model/services");
 const serviceRouter = require("./routes/services");
-
+const productRouter=require("./routes/productRoute");
 const PORT=process.env.PORT || 8080;
 
 async function main() {
@@ -53,6 +53,8 @@ app.get("/",(req,res)=>{
     res.send("working");
 })
 
+app.use("/item",productRouter);
+app.use("/services", serviceRouter);
 app.get("/api/hero", async (req, res) => {
     try {
         const heroData = await Banner.findOne({ isActive: true });
@@ -111,10 +113,10 @@ app.get("/api/product/:id",async(req,res)=>{
 // }
 // });
 
-app.use("/services", serviceRouter);
+
 
 
 
 app.listen(PORT,()=>{
-    console.log("app is listening the port:8080");
+    console.log(`app is listening the port ${PORT}`);
 })
