@@ -19,7 +19,7 @@ const serviceSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    default: 'https://5.imimg.com/data5/SELLER/Default/2023/6/313875172/HY/ZM/HY/190859855/assignment-writing-services-500x500.png' 
+    default: 'https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXNzaWdubWVudHxlbnwwfHwwfHx8MA%3D%3D'
   },
   price: {
     type: Number,

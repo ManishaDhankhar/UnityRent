@@ -118,5 +118,5 @@ app.get("/api/product/:id",async(req,res)=>{
 
 
 app.listen(PORT,()=>{
-    console.log("app is listening the port:8080");
+    console.log(`app is listening the port ${PORT}`);
 })
