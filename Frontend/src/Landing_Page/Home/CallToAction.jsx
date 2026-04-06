@@ -2,7 +2,7 @@ import React from 'react';
 
 const CallToAction = () => {
   return (
-    <section className="bg-[#dcded5] py-20 px-6 flex flex-col items-center text-center">
+    <section className="bg-white py-20 px-6 flex flex-col items-center text-center">
       {/* Heading */}
       <h2 className="text-4xl md:text-5xl font-black text-black mb-6 tracking-tight">
         Ready to Start Renting?
@@ -14,9 +14,11 @@ const CallToAction = () => {
       </p>
       
       {/* The Black Button */}
-      <button className="bg-black text-white text-lg font-bold py-4 px-10 rounded-full transition-transform active:scale-95 hover:opacity-90">
+      <button className="bg-[#002d5b] text-white text-lg font-bold py-4 px-10 rounded-full transition-transform active:scale-95 hover:opacity-90">
         Get Started Now
       </button>
+
+      
     </section>
   );
 };

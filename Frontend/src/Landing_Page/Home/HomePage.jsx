@@ -4,9 +4,9 @@ import Hero from './Hero';
 import Working from './Working';
 import Secure from './Secure';
 import FeaturedItems from './FeaturedItems';
-import StartButton from './StartButton';
 import WhyChose from './WhyChoose';
 import CallToAction from './CallToAction';
+import RentOrList from './RentOrList';
 import ServicesSection from '../../Pages/ServicesSection';
 
 
@@ -26,7 +26,7 @@ function HomePage({ allProducts, allServices }) {
           <WhyChose/>
           <Working />
           <Secure />
-          <StartButton />
+          <RentOrList/>
           <CallToAction/>
         </>
      );
