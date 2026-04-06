@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import ServiceCard from '../Landing_Page/Home/ServiceCard';
+import ServicesSection from './ServicesSection';
 
-const ServicesPage = () => {
-
-  if (loading) return <div className="loader">Loading Services...</div>;
-
+const ServicesPage = ({ allServices, title, loading }) => {
   return (
-    <div className="page-wrapper">
-      <h2 className="section-title">Available University Services</h2>
-      <div className="services-grid">
-        {services.length > 0 ? (
-          services.map(item => (
-            <ServiceCard key={item._id} service={item} />
-          ))
-        ) : (
-          <p>No services found in this category.</p>
-        )}
-      </div>
+    <div className="full-page-container" style={{ paddingTop: '30px' }}>
+      <ServicesSection 
+        services={allServices} 
+        title="Featured Services"
+        showButton={false} // Hide button because we are already on the full page
+      />
     </div>
   );
 };

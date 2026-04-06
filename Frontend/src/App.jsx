@@ -6,6 +6,8 @@ import Navbar from './Landing_Page/Navbar'
 import HomePage from './Landing_Page/Home/HomePage'
 import IteamDetails from './Landing_Page/Home/IteamDetails';
 import ServicesPage from './Pages/ServicesPage';
+import ServiceDetails from './Pages/ServiceDetails';
+import BookService from './Pages/BookService';
 import About from './ShowProduct/About';
 import BookItem from './Landing_Page/Home/BookItem';
 import Footer from './Landing_Page/Footer';
@@ -49,6 +51,10 @@ function App() {
 
           {/* 2. This is the ABOUT/ShowProduct page */}
           <Route path="/about" element={<About allProducts={products}/>} />
+          
+          <Route path="/allservices" element={<ServicesPage allServices={services} />} />
+          <Route path="/service/:id" element={<ServiceDetails allServices={services} />} />
+          <Route path="/bookservice/:id" element={<BookService allServices={services} />} />
          
           {/* 3. Optional: Add more routes here later */}
           <Route path='/item/:id' element={<IteamDetails/>} />

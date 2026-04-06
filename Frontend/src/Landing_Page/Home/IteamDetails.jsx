@@ -47,7 +47,7 @@ function ItemDetail() {
       
       {/* 1. TOP NAVIGATION & ACTIONS */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
-        <Breadcrumbs separator="›" aria-label="breadcrumb">
+        <Breadcrumbs separator=">" aria-label="breadcrumb">
           <Link underline="hover" color="inherit" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>Home</Link>
           <Typography color="text.primary">{product.category}</Typography>
         </Breadcrumbs>
