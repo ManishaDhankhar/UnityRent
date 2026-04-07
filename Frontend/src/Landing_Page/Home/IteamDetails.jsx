@@ -68,16 +68,6 @@ function ItemDetail({refreshProduct}) {
           <Typography color="text.primary">{product.category}</Typography>
         </Breadcrumbs>
         
-        {/* --- ADDED DELETE BUTTON  */}
-          <Tooltip title="Delete Listing">
-            <IconButton 
-              onClick={handleDelete} 
-              style={{ border: '1px solid #d32f2f', color: '#d32f2f' }}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-
 
         <div style={{ display: 'flex', gap: '10px' }}>
           <Tooltip title="Share">
@@ -116,7 +106,18 @@ function ItemDetail({refreshProduct}) {
               alt={product.title} 
               style={{ width: '100%', maxHeight: '450px', objectFit: 'contain', filter: 'drop-shadow(0px 20px 30px rgba(0,0,0,0.1))' }} 
             />
+            
           </div>
+            {/* ADD DELETE BUTTON  */}
+          <Tooltip title="Delete Listing">
+            <IconButton 
+              onClick={handleDelete} 
+              style={{ border: '1px solid #d32f2f', color: '#d32f2f' }}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+
           <div style={{ marginTop: '25px', display: 'flex', alignItems: 'center', gap: '10px', color: '#666' }}>
             <span style={{ fontSize: '1.2rem' }}>📍</span>
             <Typography variant="body2" fontWeight="600">Available at: {product.locationTag}</Typography>
