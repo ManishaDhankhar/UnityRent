@@ -8,6 +8,7 @@ const mongoose=require("mongoose");
 const Banner=require("./model/banner");
 const Product=require("./model/product");
 const Service = require("./model/services");
+const AddNewProduct=require("./routes/CreateNewProductRoute");
 const serviceRouter = require("./routes/services");
 const productRouter=require("./routes/productRoute");
 const PORT=process.env.PORT || 8080;
@@ -53,6 +54,7 @@ app.get("/",(req,res)=>{
     res.send("working");
 })
 
+app.use("/newProduct",AddNewProduct);
 app.use("/item",productRouter);
 app.use("/services", serviceRouter);
 app.get("/api/hero", async (req, res) => {
@@ -118,5 +120,5 @@ app.get("/api/product/:id",async(req,res)=>{
 
 
 app.listen(PORT,()=>{
-    console.log(`app is listening the port ${PORT}`);
+    console.log("app is listening the port:8080");
 })

@@ -11,11 +11,14 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1024.0",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "ejs": "^5.0.1",
     "express": "^5.2.1",
     "mongoose": "^9.3.2",
+    "multer": "^2.1.1",
+    "multer-s3": "^3.0.1",
     "router": "^2.2.0"
   }
 }

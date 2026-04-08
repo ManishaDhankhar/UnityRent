@@ -4,6 +4,7 @@ import {
   Box, Container, Typography, Card, TextField, Grid, 
   Checkbox, FormControlLabel, Button, Alert, Divider, Paper, IconButton
 } from '@mui/material';
+ import RecordVideo from './RecordVideo';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'; // New Icon
@@ -119,7 +120,8 @@ const BookingPage = () => {
                 mb: 4,
                 '& .MuiAlert-icon': { color: '#d32f2f' }
             }}
-          >
+          >  
+          <RecordVideo/>
             <Typography variant="subtitle2" fontWeight="800" color="#d32f2f">Important: Video Recording Required</Typography>
             <Typography variant="caption" display="block" sx={{ my: 1, color: '#444', lineHeight: 1.5 }}>
               • Record a clear video of the item during handover (pickup)<br />
