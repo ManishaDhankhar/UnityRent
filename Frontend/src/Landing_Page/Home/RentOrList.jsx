@@ -70,12 +70,12 @@ const MissionCard = ({ badge, badgeColor, title, description, image, features, b
       </div>
 
       {/* Content Body */}
-      <div className="p-8 flex flex-col flex-grow">
+      <div className="p-8 flex flex-col grow">
         <p className="text-gray-600 mb-8 leading-relaxed">
           {description}
         </p>
 
-        <ul className="space-y-4 mb-10 flex-grow">
+        <ul className="space-y-4 mb-10 grow">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center text-gray-700 font-medium">
               <span className={`mr-3 ${checkColor}`}>
