@@ -1,21 +1,28 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import InventoryIcon from '@mui/icons-material/Inventory'; // For Products
+import { Link } from 'react-router-dom';
 import { AppBar, Box, Toolbar, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem, InputBase, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import GoogleTranslate from './GoogleTranslate.jsx'; // Ensure path is correct
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import GoogleTranslate from './GoogleTranslate.jsx'; 
 import './Navbar.css';
+
+// No need to import AddNewProduct here anymore since it's a separate page now!
 
 const pages = ['Home', 'Browse', 'About Us', 'Contact'];
 const settings = ['Profile', 'My Rentals', 'Logout'];
 
 function Navbar() {
+  const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState("");
 
-  // Handler for search input
+
+  const userPhone = localStorage.getItem("userPhone");
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
-    console.log("Searching for:", e.target.value); 
-    // You can pass this searchQuery to your parent component to filter items
   };
 
   return (
@@ -27,38 +34,27 @@ function Navbar() {
           <Typography 
             variant="h6" 
             noWrap 
-            component="a" 
-            href="/" 
-            className="brand-logo"
-            sx={{ fontWeight: 800, color: '#002d5b', textDecoration: 'none' }}
+            onClick={() => navigate('/')} // Navigate home on click
+            sx={{ fontWeight: 800, color: '#002d5b', textDecoration: 'none', cursor: 'pointer' }}
           >
             UnityRent
           </Typography>
 
           {/* 2. SEARCH SECTION */}
-          <Box className="search-wrapper" sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            bgcolor: '#f1f3f4', 
-            px: 2, 
-            borderRadius: '20px',
-            flexGrow: 0.5,
-            mx: 4
-          }}>
+          <Box className="search-wrapper" sx={{ display: 'flex', alignItems: 'center', bgcolor: '#f1f3f4', px: 2, borderRadius: '20px', flexGrow: 0.5, mx: 4 }}>
             <SearchIcon fontSize="small" sx={{ color: '#5f6368', mr: 1 }} />
-            <InputBase
-              placeholder="Search for cycles, books, tech..."
-              fullWidth
-              value={searchQuery}
-              onChange={handleSearch}
-              sx={{ fontSize: '0.9rem' }}
+            <InputBase 
+              placeholder="Search for cycles, books, tech..." 
+              fullWidth 
+              value={searchQuery} 
+              onChange={handleSearch} 
+              sx={{ fontSize: '0.9rem' }} 
             />
           </Box>
 
           {/* 3. NAV LINKS & UTILS */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             
-            {/* Desktop Nav Links */}
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '15px', mr: 2 }}>
               {pages.map((page) => (
                 <Button key={page} sx={{ color: '#333', textTransform: 'none', fontWeight: 600 }}>
@@ -67,7 +63,29 @@ function Navbar() {
               ))}
             </Box>
 
-            {/* --- TRANSLATION ICON ADDED HERE --- */}
+            {/* MY CART / TRACKING ICON */}
+          <Button 
+            component={Link} 
+            to="/cart" 
+            startIcon={<ShoppingCartIcon />}
+            sx={{ 
+              fontWeight: '700', 
+              textTransform: 'none',
+              
+              color: '#002d5b',
+            
+            }}
+          >
+           
+          </Button>
+
+            {/* PRODUCT ICON - NAVIGATES TO THE FULL PAGE FORM */}
+            <Tooltip title="List an Item">
+              <IconButton onClick={() => navigate('/add-product')} sx={{ color: '#002d5b' }}>
+                <PostAddIcon fontSize="medium" />
+              </IconButton>
+            </Tooltip>
+
             <GoogleTranslate />
 
             {/* USER PROFILE */}
@@ -77,10 +95,10 @@ function Navbar() {
                   <Avatar alt="User" sx={{ width: 35, height: 35, bgcolor: '#002d5b' }}>M</Avatar>
                 </IconButton>
               </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                anchorEl={anchorElUser}
-                open={Boolean(anchorElUser)}
+              <Menu 
+                sx={{ mt: '45px' }} 
+                anchorEl={anchorElUser} 
+                open={Boolean(anchorElUser)} 
                 onClose={() => setAnchorElUser(null)}
               >
                 {settings.map((setting) => (

@@ -1,34 +1,50 @@
+import React from 'react';
+import './ServiceCard.css'; 
+import { useNavigate } from 'react-router-dom';
 
-// const ServiceCard = ({ service }) => {
-//   return (
-//     <div className="border rounded-lg shadow-md p-4 flex flex-col gap-2">
-//       <img 
-//         src={service.image} 
-//         alt={service.serviceName} 
-//         className="w-full h-48 object-cover rounded-md"
-//       />
-//       <div className="flex justify-between items-center">
-//         <span className="text-xs font-bold px-2 py-1 bg-blue-100 text-blue-700 rounded">
-//           {service.category}
-//         </span>
-//         <span className="text-yellow-500 font-semibold">
-//           ★ {service.rating}
-//         </span>
+const ServiceCard = ({ service }) => {
+  const navigate = useNavigate();
 
-//       </div>
-//       <h3 className="text-xl font-bold">{service.serviceName}</h3>
-//       <p className="text-gray-600 text-sm line-clamp-2">{service.description}</p>
-//       <p className="text-sm italic text-gray-500">By {service.providerName}</p>
-//       <div className="mt-auto pt-4 flex justify-between items-center border-t">
-//         <span className="text-lg font-bold text-green-600">
-//           ₹{service.price} <small className="text-gray-500 text-xs">{service.priceUnit}</small>
-//         </span>
-//         <button className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
-//           Book Now
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
+    if (!service) return null;
 
-// export default ServiceCard;
+  return (
+    <div className="service-card">
+      <div className="image-container">
+        <img 
+          src={service.image} 
+          alt={service.serviceName}  
+        />
+        <div className="rating-badge">
+          ⭐ {service.rating || "New"}
+        </div>
+      </div>
+      
+      <div className="card-content">
+        <div className="card-header">
+          <span className="category-tag">{service.category}</span>
+          <span className="price-tag">₹{service.price} <small>{service.priceUnit}</small></span>
+        </div>
+
+        <h3 className="service-title">{service.serviceName}</h3>
+        <p className="provider-name">By: {service.providerName}</p>
+        {/* <p className="description">{service.description.substring(0, 80)}...</p> */}
+        
+        <div className="card-footer">
+          {/* <div className="tags">
+            {service.tags.slice(0, 2).map((tag, i) => (
+              <span key={i} className="tag">#{tag}</span>
+            ))}
+          </div> */}
+          <button
+           onClick={() => navigate(`/service/${service._id}`)}
+           className="view-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+     
+  );
+};
+
+
+
+export default ServiceCard;

@@ -7,7 +7,10 @@ const app=express();
 const mongoose=require("mongoose");
 const Banner=require("./model/banner");
 const Product=require("./model/product");
+const BookingItemCart=require("./model/BookingItemCart");
 const Service = require("./model/services");
+const AddNewProduct=require("./routes/CreateNewProductRoute");
+const bookItemCartRouter=require("./routes/BookItemCartRoute");
 const serviceRouter = require("./routes/services");
 const productRouter=require("./routes/productRoute");
 const PORT=process.env.PORT || 8080;
@@ -53,7 +56,9 @@ app.get("/",(req,res)=>{
     res.send("working");
 })
 
+app.use("/newProduct",AddNewProduct);
 app.use("/item",productRouter);
+app.use("/api/booking",bookItemCartRouter);
 app.use("/services", serviceRouter);
 app.get("/api/hero", async (req, res) => {
     try {

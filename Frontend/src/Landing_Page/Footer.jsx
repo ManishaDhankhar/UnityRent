@@ -5,13 +5,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#111111] text-white pt-16 pb-8 px-6">
+    <footer className="bg-[#002d5b] text-white pt-16 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12">
         
         {/* Column 1: Brand & Bio */}
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl font-black tracking-tight text-[#eaece4]">UnityRent</h2>
-          <p className="text-gray-400 text-sm leading-relaxed">
+          <p className="text-white-300 text-sm leading-relaxed">
             The most trusted marketplace for students to rent, lend, and save. 
             Join our community and start sharing today.
           </p>
