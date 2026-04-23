@@ -2,10 +2,15 @@
 import React, { createContext, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const AppContext = createContext()
 
 export const AppContextProvider = (props)=>{
+
+    // to send the cookies so that when a user refresh the page it stores the user information
+    // and the user does not logout
+    axios.defaults.withCredentials = true
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [isLoggedin, setIsLoggedin] = useState(false)
