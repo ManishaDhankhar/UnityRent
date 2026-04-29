@@ -1,5 +1,6 @@
 import { useCallback,useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {  Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Navbar from './Landing_Page/Navbar'
@@ -17,6 +18,7 @@ import Footer from './Landing_Page/Footer';
 import Login from './Landing_Page/SignIn/Login';
 import EmailVerify from './Landing_Page/SignIn/EmailVerify';
 import ResetPassword from './Landing_Page/SignIn/ResetPassword';
+ import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -49,11 +51,13 @@ function App() {
   }, [fetchProducts, fetchServices]);
 
   return (
-    <Router>
+    
       <div className="App">
         {/* If you have a Navbar, put it here so it shows on every page */}
         <Navbar refreshProducts={fetchProducts}></Navbar>
         
+        <ToastContainer/>
+
         <Routes>
           {/* 1. This is your HOME page (the default view) */}
           <Route path="/" element={<HomePage allProducts={products.slice(0,4)} allServices={services.slice(0,3)}/>} />
@@ -83,7 +87,7 @@ function App() {
         {/* If you have a Footer, put it here */}
         <Footer></Footer>
       </div>
-    </Router>
+   
   )
 }
 

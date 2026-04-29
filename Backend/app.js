@@ -50,7 +50,11 @@ main().then((req,res)=>{
 //     res.send("testcase working");
 // })
 
-app.use(cors());
+
+// adding frontend url
+const allowedOrigins = ['http://localhost:5173'];
+
+app.use(cors({origin: allowedOrigins, credentials: true}));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -61,9 +65,9 @@ app.get("/",(req,res)=>{
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 
-app.use("/newProduct",AddNewProduct);
+// app.use("/newProduct",AddNewProduct);
 app.use("/item",productRouter);
-app.use("/api/booking",bookItemCartRouter);
+// app.use("/api/booking",bookItemCartRouter);
 app.use("/services", serviceRouter);
 app.get("/api/hero", async (req, res) => {
     try {
@@ -122,8 +126,6 @@ app.get("/api/product/:id",async(req,res)=>{
 //    console.log(err);
 // }
 // });
-
-
 
 
 
