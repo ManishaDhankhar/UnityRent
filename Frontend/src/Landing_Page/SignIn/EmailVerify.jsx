@@ -1,5 +1,5 @@
 import { Button } from '@mui/material'
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { AppContext } from '../../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify';
@@ -54,6 +54,11 @@ const EmailVerify = () => {
       toast.error(error.message)
     }
   }
+
+  // redirect to home page when user account is verified
+  useEffect(()=>{
+    isLoggedin &&  userData && userData.isAccVerified && navigate('/')
+  }, [isLoggedin, userData])
 
   return (
     <>
