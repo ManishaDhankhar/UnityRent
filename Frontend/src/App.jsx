@@ -60,7 +60,7 @@ function App() {
 
         <Routes>
           {/* 1. This is your HOME page (the default view) */}
-          <Route path="/" element={<HomePage allProducts={products.slice(0,4)} allServices={services.slice(0,3)}/>} />
+          <Route path="/" element={<HomePage allProducts={products.slice(0,3)} allServices={services.slice(0,3)}/>} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/email-verify" element={<EmailVerify/>}/>
           <Route path="/reset-password" element={<ResetPassword/>}/>
