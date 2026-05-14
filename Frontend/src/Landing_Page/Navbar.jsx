@@ -71,7 +71,6 @@ function Navbar() {
             sx={{ 
               fontWeight: '700', 
               textTransform: 'none',
-              
               color: '#002d5b',
             
             }}
