@@ -13,10 +13,21 @@ import { useContext } from 'react';
 import { AppContext } from '../context/AppContext.jsx';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import InfoIcon from '@mui/icons-material/Info';
+import MessageIcon from '@mui/icons-material/Message';
 
 // No need to import AddNewProduct here anymore since it's a separate page now!
 
-const pages = ['Home', 'Browse', 'About Us'];
+const pages = [
+  { name: 'Home', path: '/', icon: <HomeIcon /> },
+  { name: 'Browse', path: '/about', icon: <SearchIcon /> },
+  { name: 'Messages', path: '/messages', icon: <MessageIcon /> },
+  { name: 'Dashboard', path: '/dashboard', icon: <PersonIcon /> },
+  { name: 'About Us', path: '/about-us', icon: <InfoIcon /> },
+  
+];
 const settings = ['Profile', 'My Rentals', 'Logout'];
 
 function Navbar() {
@@ -72,53 +83,37 @@ function Navbar() {
           
           {/* 1. LOGO SECTION */}
           <Typography 
-            variant="h6" 
+            variant="h5" 
             noWrap 
             onClick={() => navigate('/')} // Navigate home on click
-            sx={{ fontWeight: 800, color: '#002d5b', textDecoration: 'none', cursor: 'pointer' }}
+            sx={{ fontWeight: 800, color: '#002d5b', textDecoration: 'none', cursor: 'pointer', paddingLeft: '70px' }}
           >
             UnityRent
           </Typography>
 
-          {/* 2. SEARCH SECTION */}
-          <Box className="search-wrapper" sx={{ display: 'flex', alignItems: 'center', bgcolor: '#f1f3f4', px: 2, borderRadius: '20px', flexGrow: 0.5, mx: 4 }}>
-            <SearchIcon fontSize="small" sx={{ color: '#5f6368', mr: 1 }} />
-            <InputBase 
-              placeholder="Search for cycles, books, tech..." 
-              fullWidth 
-              value={searchQuery} 
-              onChange={handleSearch} 
-              sx={{ fontSize: '0.9rem' }} 
-            />
-          </Box>
+        
 
           {/* 3. NAV LINKS & UTILS */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '15px', mr: 2 }}>
-              {pages.map((page) => (
-                <Button key={page} sx={{ color: '#333', textTransform: 'none', fontWeight: 600 }}>
-                  {page}
+              <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '30px', mr: 2, paddingRight: '9rem' }}>
+                {pages.map((page) => (
+                <Button 
+                key={page} 
+                // Add the onClick handler here
+                onClick={() => navigate(page.path)}
+                  // This adds the icon in front of the text
+                  startIcon={page.icon}
+                  sx={{ fontSize: '18px', color: '#333', textTransform: 'none', fontWeight: 700 }}
+                  >
+                  {page.name}
                 </Button>
-              ))}
-            </Box>
+                ))}
+              </Box>
 
-            
+          
 
-            {/* MY CART / TRACKING ICON */}
-          <Button 
-            component={Link} 
-            to="/cart" 
-            startIcon={<ShoppingCartIcon />}
-            sx={{ 
-              fontWeight: '700', 
-              textTransform: 'none',
-              color: '#002d5b',
-            }}
-          >
-          </Button>
-
-            {/* PRODUCT ICON - NAVIGATES TO THE FULL PAGE FORM */}
+         
             {/* <Tooltip title="List an Item">
               <IconButton onClick={() => navigate('/add-product')} sx={{ color: '#002d5b' }}>
                 <PostAddIcon fontSize="medium" />
