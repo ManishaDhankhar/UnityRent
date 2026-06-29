@@ -248,6 +248,7 @@ Built with ❤️ by:
 
 - **Devika Sharma** — [github.com/devikasharma1234](https://github.com/devikasharma1234)
 - **Manisha Dhankhar** — [github.com/ManishaDhankhar](https://github.com/ManishaDhankhar)
+- **Gavy** - [github.com/Gavy2006](https://github.com/Gavy2006)
 
 ---
 
