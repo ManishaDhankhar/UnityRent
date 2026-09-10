@@ -1,96 +1,484 @@
+/* Hero.css - Premium Animated Hero Section for UnityRent */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.hero-section-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF5FB 60%, #F5ECF7 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  padding: 40px 0 60px 0;
+}
+
+/* Background Glowing Orbs */
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orb-1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(97, 31, 105, 0.22) 0%, rgba(157, 78, 221, 0.12) 70%, transparent 100%);
+  top: -80px;
+  right: -50px;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74, 21, 75, 0.18) 0%, rgba(236, 72, 153, 0.1) 70%, transparent 100%);
+  bottom: -100px;
+  left: -100px;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(97, 31, 105, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main Container Layout */
 .hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Left Column: Hero Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Hero Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(97, 31, 105, 0.06);
+  border: 1px solid rgba(97, 31, 105, 0.18);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #611F69;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(97, 31, 105, 0.05);
+}
+
+.badge-sparkle {
+  color: #9D4EDD;
+}
+
+.badge-pill-new {
+  background: #611F69;
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #1A1A1A;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+}
+
+.hero-gradient-text {
+  background: linear-gradient(135deg, #611F69 0%, #9D4EDD 50%, #E01E5A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* Hero Subtitle */
+.hero-subtitle {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: #555555;
+  margin: 0 0 32px 0;
+  max-width: 580px;
+}
+
+/* Glassmorphism Search Bar */
+.hero-search-card {
+  width: 100%;
+  max-width: 580px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(97, 31, 105, 0.15);
+  border-radius: 16px;
+  padding: 8px 8px 8px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 8%;
-  background-color: #ffffff;
-  min-height: 85vh;
-  font-family: 'Inter', sans-serif;
+  gap: 12px;
+  box-shadow: 0 16px 40px rgba(97, 31, 105, 0.1);
+  transition: all 0.25s ease;
 }
 
-.hero-content {
-  flex: 1;
-  max-width: 600px;
+.hero-search-card:focus-within {
+  border-color: #611F69;
+  box-shadow: 0 20px 50px rgba(97, 31, 105, 0.18);
+  transform: translateY(-2px);
 }
 
-.hero-title {
-  font-size: 3.8rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-/* This is the class we added in the replace() function */
-.blue-text {
-  color: #002d5b;
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 35px;
-  line-height: 1.6;
-}
-
-.hero-search-wrapper {
+.search-input-group {
   display: flex;
+  align-items: center;
   gap: 10px;
-  background: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.05);
+  flex: 1;
+}
+
+.search-icon {
+  color: #611F69;
+  flex-shrink: 0;
 }
 
 .hero-input {
-  flex: 1;
+  width: 100%;
   border: none;
   outline: none;
-  padding: 12px;
-  font-size: 1rem;
+  font-size: 0.98rem;
+  font-family: inherit;
+  color: #1A1A1A;
+  background: transparent;
 }
 
-.hero-btn {
-  background-color: #002d5b;
-  color: white;
+.hero-input::placeholder {
+  color: #999999;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, #611F69 0%, #4A154B 100%);
+  color: #FFFFFF;
   border: none;
-  padding: 12px 25px;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(97, 31, 105, 0.35);
 }
 
-.hero-btn:hover {
-  background-color: #002d5b;
+.hero-btn-primary:hover {
+  background: linear-gradient(135deg, #4A154B 0%, #360F38 100%);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(97, 31, 105, 0.45);
 }
 
-/* Image styling to match the reference */
-.hero-image-container {
-  flex: 1;
+/* Tag Suggestions */
+.hero-tags-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.tags-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #777777;
+}
+
+.tags-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(97, 31, 105, 0.12);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4A154B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-btn:hover {
+  background: #611F69;
+  color: #FFFFFF;
+  border-color: #611F69;
+  transform: translateY(-2px);
+}
+
+/* CTA Action Buttons */
+.hero-cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: #611F69;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(97, 31, 105, 0.28);
+}
+
+.btn-explore:hover {
+  background: #4A154B;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(97, 31, 105, 0.38);
+}
+
+.btn-list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  background: #FFFFFF;
+  color: #611F69;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 2px solid #611F69;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-list-item:hover {
+  background: rgba(97, 31, 105, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Right Column: Hero Image & Floating Cards */
+.hero-image-column {
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
 
+.hero-image-wrapper {
   position: relative;
-}
-
-.hero-image-container img {
   width: 100%;
-  max-width: 700px;
-  z-index: 2;
+  max-width: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* The decorative circle background from your image */
-.hero-image-container::after {
-  content: "";
+/* Glowing Backing Ring */
+.glowing-ring {
   position: absolute;
-  width: 450px;
-  height: 450px;
-  background-color: rgba(0, 163, 196, 0.05); /* Very light blue */
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
-  border: 2px dashed rgba(0, 163, 196, 0.2);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg, rgba(97, 31, 105, 0.15), rgba(157, 78, 221, 0.2), rgba(236, 72, 153, 0.15), rgba(97, 31, 105, 0.15));
+  filter: blur(20px);
   z-index: 1;
+}
+
+.hero-main-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(97, 31, 105, 0.2));
+}
+
+/* Aceternity Style Floating Cards */
+.floating-card {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(97, 31, 105, 0.05);
+}
+
+.card-top-right {
+  top: 30px;
+  right: -20px;
+}
+
+.card-bottom-left {
+  bottom: 40px;
+  left: -30px;
+}
+
+.card-bottom-right {
+  bottom: -20px;
+  right: 10px;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-green {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.icon-purple {
+  background: rgba(97, 31, 105, 0.12);
+  color: #611F69;
+}
+
+.icon-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #F59E0B;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1.2;
+}
+
+.card-subtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666666;
+  margin-top: 2px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1080px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 20px;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .hero-search-card {
+    max-width: 100%;
+  }
+
+  .hero-tags-wrapper {
+    justify-content: center;
+  }
+
+  .card-top-right {
+    right: 0px;
+  }
+
+  .card-bottom-left {
+    left: 0px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem;
+  }
+
+  .hero-search-card {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .hero-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-explore, .btn-list-item {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .floating-card {
+    padding: 8px 12px;
+  }
+
+  .card-title {
+    font-size: 0.8rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.7rem;
+  }
 }
