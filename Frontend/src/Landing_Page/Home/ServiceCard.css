@@ -19,6 +19,7 @@
 }
 
 .card-content {
+  text-align: left;
   padding: 20px;
 }
 
@@ -40,4 +41,108 @@
   border-radius: 8px;
   cursor: pointer;
   margin-top: 15px;
+}
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.price-tag {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.price-tag small {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.service-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.provider-name {
+  color: #888;
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.rating-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.rental-item-wrapper {
+   
+  border-radius: 28px;
+}
+
+/* Blue frame override for rental images */
+
+.rental-item-wrapper .image-container img {
+ 
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover; 
+  filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.2));
+}
+
+/* Dual button layout for rentals */
+.rental-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.details-btn {
+  flex: 1;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.rent-btn {
+  flex: 1.5;
+  background-color: #002d5b;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rent-btn .arrow {
+  background: white;
+  color: #002d5b;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
 }

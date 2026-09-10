@@ -70,8 +70,6 @@
 
 import axios from 'axios';
 
-// Keeping this here so you don't have to delete it, 
-// but we won't call it in the bypass logic.
 const loadRazorpayScript = () => {
     return new Promise((resolve) => {
         const script = document.createElement("script");
@@ -94,16 +92,15 @@ export const processPayment = async (bookingData, navigate) => {
         const response = await axios.post("http://localhost:8080/api/booking/new", bookingData);
         const { bookingId, amountToPay, razorpayOrderId } = response.data;
 
-        // --- BYPASS LOGIC START ---
-        // We save the phone and prep the redirect BEFORE the payment is even finished.
+       
         console.log("Saving data to cart immediately (Bypassing payment check)...");
         localStorage.setItem("userPhone", bookingData.renterPhone);
         
-        // We set a small timeout to let the Razorpay popup initialize, then redirect
+      
         setTimeout(() => {
             navigate("/cart");
         }, 3000); 
-        // --- BYPASS LOGIC END ---
+       
 
         const options = {
             key: "rzp_test_SdQyahlRvGquqk",
@@ -113,7 +110,6 @@ export const processPayment = async (bookingData, navigate) => {
             description: "Secure Rental Payment",
             order_id: razorpayOrderId,
             handler: async function (response) {
-                // This will still run if payment succeeds, but the redirect happened already
                 console.log("Payment actually succeeded:", response);
             },
             prefill: {
