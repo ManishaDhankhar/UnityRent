@@ -20,7 +20,7 @@ const AddProductForm = ({ refreshProducts }) => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post('http://localhost:8080/newProduct', formData);
+      await axios.post(`${BACEKND_URL}/newProduct`, formData);
       alert("Product Listed Successfully!");
       
       // 1. Refresh the data in App.js

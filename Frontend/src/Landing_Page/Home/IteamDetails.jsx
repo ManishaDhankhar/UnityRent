@@ -14,6 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import axios from "axios";
+import { BACKEND_URL } from "../../config";
 
 function ItemDetail({refreshProduct}) {
   const { id } = useParams();
@@ -24,7 +25,7 @@ function ItemDetail({refreshProduct}) {
   const handleDelete=async()=>{
     if(window.confirm("Are you sure you want to delete this product")){
       try{
-        await axios.delete(`http://localhost:8080/item/${id}`);
+        await axios.delete(`${BACKEND_URL}/item/${id}`);
         alert("product delete Successfully");
         window.location.href="/";
         navigate('/');
@@ -36,7 +37,7 @@ function ItemDetail({refreshProduct}) {
 
   useEffect(() => {
     window.scrollTo(0, 0); // Always scroll to top on load
-    fetch(`http://localhost:8080/item/${id}`)
+    fetch(`${BACKEND_URL}/item/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

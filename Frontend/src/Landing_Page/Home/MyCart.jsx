@@ -89,6 +89,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BACKEND_URL } from '../../config';
 
 function MyCart() {
   const [bookings, setBookings] = useState([]);
@@ -97,7 +98,7 @@ function MyCart() {
 
   useEffect(() => {
     if (userPhone) {
-      axios.get(`http://localhost:8080/api/booking/my-cart/${userPhone}`)
+      axios.get(`${BACKEND_URL}/api/booking/my-cart/${userPhone}`)
         .then(res => {
           console.log("Data from DB:", res.data);
           // We show all items, regardless of payment status, to verify the bypass

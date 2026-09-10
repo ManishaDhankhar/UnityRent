@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import { useReactMediaRecorder } from "react-media-recorder";
 import { Box, Button, Typography } from '@mui/material'; 
-
+import { BACKEND_URL } from "../../config";
 const RecordView = () => {
   const {id}=useParams();
   const { status, startRecording, stopRecording, mediaBlobUrl,previewStream } =
@@ -39,7 +39,7 @@ const RecordView = () => {
     // 3. Send to your Backend
     // Replace 'BOOKING_ID_HERE' with your actual dynamic ID
     const res = await axios.post(
-      `http://localhost:8080/item/verify-return/${id}`, 
+      `${BACKEND_URL}/item/verify-return/${id}`, 
       formData,
       { headers: { 'Content-Type': 'multipart/form-data' } }
     );

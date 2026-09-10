@@ -89,7 +89,7 @@ export const processPayment = async (bookingData, navigate) => {
     }
 
     try {
-        const response = await axios.post("http://localhost:8080/api/booking/new", bookingData);
+        const response = await axios.post(`${BACKEND_URL}/api/booking/new`, bookingData);
         const { bookingId, amountToPay, razorpayOrderId } = response.data;
 
        

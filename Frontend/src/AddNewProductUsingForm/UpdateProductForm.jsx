@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { Button, TextField, MenuItem, Container, Paper, Typography, Box, CircularProgress } from '@mui/material';
 import { useNavigate,useParams } from 'react-router-dom';
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
 
 const UpdateProductForm=({refreshProducts})=>{
         const {id}=useParams();
@@ -18,7 +19,7 @@ const UpdateProductForm=({refreshProducts})=>{
             condition: ''
         });
         useEffect(()=>{
-            axios.get(`http://localhost:8080/item/${id}`)
+            axios.get(`${BACKEND_URL}/item/${id}`)
             .then((res)=>{
                 const data=res.data;
              setFormData({
@@ -55,7 +56,7 @@ const UpdateProductForm=({refreshProducts})=>{
         }
     };
             try{
-           await axios.put(`http://localhost:8080/item/${id}`,updatedPayload);
+           await axios.put(`${BACKEND_URL}/item/${id}`,updatedPayload);
            alert("Product Updated Successfully");
 
            if(refreshProducts)refreshProducts();
