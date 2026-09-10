@@ -18,7 +18,7 @@ const About = ({allProducts}) => {
         <>
           {/* We pass the data into FeaturedItems so it can show the cards */}
           
-          <FeaturedItems items={allProducts} />
+          <FeaturedItems items={allProducts} showSearch={true}/>
         
         </>
      );

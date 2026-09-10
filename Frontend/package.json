@@ -19,6 +19,7 @@
     "aos": "^2.3.4",
     "axios": "^1.13.6",
     "framer-motion": "^12.38.0",
+    "fuse.js": "^7.5.0",
     "lucide-react": "^0.577.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
