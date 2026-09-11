@@ -80,16 +80,16 @@ function Navbar({ refreshProducts }) {
               Browse All
             </Button>
 
-            <Button className="nav-link-btn" onClick={() => navigate('/about?filter=new')}>
-              What's New
-            </Button>
-
             <Button className="nav-link-btn" onClick={() => navigate('/allservices')}>
               Services
             </Button>
 
             <Button className="nav-link-btn" onClick={() => navigate('/add-product')}>
               List Item
+            </Button>
+
+            <Button className="nav-link-btn" onClick={() => navigate('/about?filter=new')}>
+              About Us
             </Button>
           </Box>
 
