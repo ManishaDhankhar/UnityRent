@@ -1,17 +1,19 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-body{
-    font-family: 'Inter', sans-serif;
+* {
+    font-family: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.dark{
-    color-scheme: dark;
-}
-/* 5. Force the body and html to stay at the top regardless of inline styles */
-body {
+body, html {
+    font-family: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     top: 0 !important;
     position: static !important;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-title, .hero-title, .section-title {
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif !important;
+    letter-spacing: -0.02em;
 }
 
 

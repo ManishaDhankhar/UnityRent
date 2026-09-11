@@ -1,96 +1,227 @@
+.hero-section {
+  background: linear-gradient(120deg, #dcf2f4 0%, #e6f6f5 35%, #faf8ea 75%, #fffdf4 100%);
+  min-height: 84vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0;
+}
+
 .hero-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 8%;
-  background-color: #ffffff;
-  min-height: 85vh;
-  font-family: 'Inter', sans-serif;
+  gap: 40px;
 }
 
+/* Left Content Column */
 .hero-content {
   flex: 1;
-  max-width: 600px;
-}
-
-.hero-title {
-  font-size: 3.8rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-/* This is the class we added in the replace() function */
-.blue-text {
-  color: #002d5b;
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 35px;
-  line-height: 1.6;
-}
-
-.hero-search-wrapper {
-  display: flex;
-  gap: 10px;
-  background: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.05);
-}
-
-.hero-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  padding: 12px;
-  font-size: 1rem;
-}
-
-.hero-btn {
-  background-color: #002d5b;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero-btn:hover {
-  background-color: #002d5b;
-}
-
-/* Image styling to match the reference */
-.hero-image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-
-  position: relative;
-}
-
-.hero-image-container img {
-  width: 100%;
-  max-width: 700px;
+  max-width: 580px;
   z-index: 2;
 }
 
-/* The decorative circle background from your image */
-.hero-image-container::after {
-  content: "";
+.hero-title {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #063b28;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #264a3e;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+}
+
+.hero-explore-btn {
+  background-color: #063b28;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 14px 44px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(6, 59, 40, 0.25);
+  transition: all 0.25s ease;
+}
+
+.hero-explore-btn:hover {
+  background-color: #042b1d;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(6, 59, 40, 0.32);
+}
+
+.hero-explore-btn:active {
+  transform: translateY(0);
+}
+
+/* Right Column: Visual Collage */
+.hero-visual-wrapper {
+  flex: 1.1;
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Yellow Stepped Polygon Shape */
+.yellow-stepped-shape {
   position: absolute;
-  width: 450px;
-  height: 450px;
-  background-color: rgba(0, 163, 196, 0.05); /* Very light blue */
-  border-radius: 50%;
-  border: 2px dashed rgba(0, 163, 196, 0.2);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 380px;
+  transform: rotate(-14deg);
   z-index: 1;
+  right: 40px;
+  top: 60px;
+}
+
+.step-block {
+  position: absolute;
+  background-color: #f7cb2c;
+  border-radius: 20px;
+}
+
+.step-top {
+  width: 140px;
+  height: 120px;
+  right: 0;
+  top: 0;
+}
+
+.step-mid {
+  width: 240px;
+  height: 160px;
+  right: 40px;
+  top: 90px;
+}
+
+.step-base {
+  width: 420px;
+  height: 220px;
+  left: 0;
+  bottom: 0;
+  border-radius: 28px;
+}
+
+/* Product Cards overlay on Yellow Background */
+.hero-card {
+  position: absolute;
+  z-index: 2;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #ffffff;
+}
+
+.hero-card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  z-index: 5;
+}
+
+.hero-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Specific Card Placements matching reference screenshot */
+/* 1. Camera (Top Center-Left) */
+.card-camera {
+  width: 175px;
+  height: 130px;
+  top: 35px;
+  left: 175px;
+}
+
+/* 2. Headphones (Top Right, yellow backdrop) */
+.card-headphones {
+  width: 130px;
+  height: 130px;
+  top: 110px;
+  right: 50px;
+}
+
+/* 3. Iron (Center Left) */
+.card-iron {
+  width: 155px;
+  height: 120px;
+  top: 180px;
+  left: 275px;
+}
+
+/* 4. Mouse (Bottom Left) */
+.card-mouse {
+  width: 145px;
+  height: 110px;
+  bottom: 50px;
+  left: 100px;
+}
+
+/* 5. Bicycle (Bottom Right) */
+.card-bike {
+  width: 160px;
+  height: 120px;
+  bottom: 75px;
+  right: 125px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 3.1rem;
+  }
+
+  .hero-visual-wrapper {
+    height: 440px;
+  }
+
+  .yellow-stepped-shape {
+    width: 360px;
+    height: 310px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-visual-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+  }
 }

@@ -95,7 +95,7 @@ function ItemDetail({refreshProduct}) {
           }}>
             <span style={{ 
               position: 'absolute', top: '30px', left: '30px', 
-              backgroundColor: '#002d5b', color: 'white', 
+              backgroundColor: '#063b28', color: 'white', 
               padding: '8px 20px', borderRadius: '30px', 
               fontSize: '0.75rem', fontWeight: 'bold', textTransform: 'uppercase' 
             }}>
@@ -129,15 +129,15 @@ function ItemDetail({refreshProduct}) {
 
         {/* 3. RIGHT SIDE: THE CONTENT BOX */}
         <div style={{ flex: '1.2', minWidth: '400px' }}>
-          <Typography variant="overline" style={{ color: '#002d5b', fontWeight: '900', letterSpacing: '2px' }}>
+          <Typography variant="overline" style={{ color: '#063b28', fontWeight: '900', letterSpacing: '2px' }}>
             {product.category}
           </Typography>
           
-          <Typography variant="h2" style={{ fontSize: '3rem', fontWeight: '900', color: '#111', margin: '10px 0 20px', lineHeight: '1.1' }}>
+          <Typography variant="h2" style={{ fontSize: '3rem', fontWeight: '900', color: '#063b28', margin: '10px 0 20px', lineHeight: '1.1' }}>
             {product.title}
           </Typography>
 
-          <Typography variant="body1" style={{ color: '#555', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '40px' }}>
+          <Typography variant="body1" style={{ color: '#2b4d40', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '40px' }}>
             {product.description}
           </Typography>
 
@@ -145,19 +145,19 @@ function ItemDetail({refreshProduct}) {
 
           {/* PRICING SECTION */}
           <div style={{ 
-            background: 'linear-gradient(145deg, #ffffff, #f0f4f8)', 
+            background: 'linear-gradient(145deg, #ffffff, #e6f5f0)', 
             padding: '35px', 
             borderRadius: '32px', 
-            border: '1px solid #eef2f6',
-            boxShadow: '0 20px 40px rgba(0, 45, 91, 0.04)',
+            border: '1px solid #cce4db',
+            boxShadow: '0 20px 40px rgba(6, 59, 40, 0.04)',
             marginBottom: '40px'
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-              <Typography variant="h3" style={{ fontWeight: '900', color: '#002d5b' }}>₹{product.pricing.ratePerDay}</Typography>
-              <Typography variant="subtitle1" style={{ color: '#777', fontWeight: '600' }}>/ day</Typography>
+              <Typography variant="h3" style={{ fontWeight: '900', color: '#063b28' }}>₹{product.pricing.ratePerDay}</Typography>
+              <Typography variant="subtitle1" style={{ color: '#597a6e', fontWeight: '600' }}>/ day</Typography>
             </div>
-            <Typography variant="body2" style={{ color: '#666', marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              🛡️ Security Deposit: <b>₹{product.pricing.securityDeposit}</b> <span style={{ color: '#00b894' }}>(Fully Refundable)</span>
+            <Typography variant="body2" style={{ color: '#2b4d40', marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              🛡️ Security Deposit: <b>₹{product.pricing.securityDeposit}</b> <span style={{ color: '#063b28' }}>(Fully Refundable)</span>
             </Typography>
           </div>
 
@@ -166,10 +166,10 @@ function ItemDetail({refreshProduct}) {
             <button 
               onClick={() => navigate(`/book/${product._id}`)}
               style={{ 
-                flex: 2, backgroundColor: '#002d5b', color: 'white', 
+                flex: 2, backgroundColor: '#063b28', color: 'white', 
                 borderRadius: '50px', border: 'none', 
                 fontWeight: '800', fontSize: '1.1rem', cursor: 'pointer',
-                boxShadow: '0 10px 20px rgba(0, 45, 91, 0.2)',
+                boxShadow: '0 10px 20px rgba(6, 59, 40, 0.2)',
                 transition: '0.3s transform'
               }}
               onMouseOver={(e) => e.target.style.transform = 'translateY(-3px)'}
@@ -179,8 +179,8 @@ function ItemDetail({refreshProduct}) {
             </button>
             <button 
               style={{ 
-                flex: 1, backgroundColor: '#fff', color: '#002d5b', 
-                padding: '22px', borderRadius: '50px', border: '2px solid #002d5b', 
+                flex: 1, backgroundColor: '#fff', color: '#063b28', 
+                padding: '22px', borderRadius: '50px', border: '2px solid #063b28', 
                 fontWeight: '800', fontSize: '1rem', cursor: 'pointer' 
               }}
             >

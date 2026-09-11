@@ -45,7 +45,7 @@ const BookingPage = () => {
         <Button 
           startIcon={<ArrowBackIosNewIcon sx={{ fontSize: '14px !important' }} />} 
           onClick={() => navigate(-1)}
-          sx={{ color: '#666', fontWeight: '700', '&:hover': { color: '#002d5b' } }}
+          sx={{ color: '#666', fontWeight: '700', '&:hover': { color: '#063b28' } }}
         >
           Back
         </Button>
@@ -68,7 +68,7 @@ const BookingPage = () => {
         <Grid item xs={12} md={8}>
           {/* RENTAL PERIOD SECTION */}
           <Typography variant="subtitle1" fontWeight="700" sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <CalendarMonthIcon sx={{ mr: 1, color: '#002d5b' }} /> Rental Period
+            <CalendarMonthIcon sx={{ mr: 1, color: '#063b28' }} /> Rental Period
           </Typography>
           <Box display="flex" gap={2} mb={4}>
             <TextField 
@@ -137,7 +137,7 @@ const BookingPage = () => {
                 };
                 processPayment(bookingData, navigate);
               }}
-              sx={{ backgroundColor: '#002d5b', borderRadius: '30px', py: 1.8 }}
+              sx={{ backgroundColor: '#063b28', borderRadius: '30px', py: 1.8, '&:hover': { backgroundColor: '#042b1d' } }}
             >
               Confirm Booking
             </Button>

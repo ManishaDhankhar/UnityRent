@@ -37,8 +37,8 @@ const AddProductForm = ({ refreshProducts }) => {
   return (
     <Container maxWidth="sm" sx={{ py: 5 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: '#002d5b' }}>
-          List a New Rental Item
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: '#063b28' }}>
+          List a New Product
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
           Fill in the details below to make your item available for the campus.
@@ -90,7 +90,7 @@ const AddProductForm = ({ refreshProducts }) => {
             <Button variant="outlined" fullWidth onClick={() => navigate('/')}>
               Cancel
             </Button>
-            <Button variant="contained" fullWidth onClick={handleSubmit} sx={{ bgcolor: '#002d5b' }}>
+            <Button variant="contained" fullWidth onClick={handleSubmit} sx={{ bgcolor: '#063b28', '&:hover': { bgcolor: '#042b1d' } }}>
               List Item
             </Button>
           </Box>

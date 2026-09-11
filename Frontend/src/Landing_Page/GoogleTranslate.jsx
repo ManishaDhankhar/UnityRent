@@ -61,7 +61,7 @@ const GoogleTranslate = () => {
             />
             
             <Tooltip title="Translate Page">
-                <IconButton sx={{ color: '#002d5b',pointerEvents: 'none' }}>
+                <IconButton sx={{ color: '#063b28', pointerEvents: 'none' }}>
                     <TranslateIcon />
                 </IconButton>
             </Tooltip>

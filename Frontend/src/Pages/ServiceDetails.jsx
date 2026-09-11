@@ -163,13 +163,13 @@ const ServiceDetails = ({ allServices }) => {
                 variant="contained" 
                 size="large"
                 sx={{ 
-                  bgcolor: '#002d5b', 
+                  bgcolor: '#063b28', 
                   py: 2, 
                   borderRadius: '15px',
                   fontWeight: '800',
                   textTransform: 'none',
                   fontSize: '1.1rem',
-                  '&:hover': { bgcolor: '#004080' } 
+                  '&:hover': { bgcolor: '#042b1d' } 
                 }}
               >
                 Book This Service
