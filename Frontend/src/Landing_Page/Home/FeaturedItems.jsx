@@ -80,7 +80,7 @@ const DEMO_PRODUCTS = [
   }
 ];
 
-function FeaturedItems({ items }) {
+function FeaturedItems({ items, showButton }) {
   const navigate = useNavigate();
 
   // Combine props items with fallback products to guarantee at least 5 items for carousel
@@ -92,8 +92,18 @@ function FeaturedItems({ items }) {
     return DEMO_PRODUCTS;
   }, [items]);
 
-  const [activeIndex, setActiveIndex] = useState(Math.floor(productList.length / 2));
+  const [activeIndex, setActiveIndex] = useState(0);
   const [favorites, setFavorites] = useState({});
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Auto-play infinite slider
+  useEffect(() => {
+    if (isHovered || productList.length === 0) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % productList.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isHovered, productList.length]);
 
   const toggleFavorite = (e, id) => {
     e.stopPropagation();
@@ -126,7 +136,11 @@ function FeaturedItems({ items }) {
       </div>
 
       {/* 3D Coverflow Carousel Wrapper */}
-      <div className="carousel-wrapper">
+      <div
+        className="carousel-wrapper"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* Left Nav Arrow */}
         <button className="carousel-arrow arrow-left" onClick={prevSlide} aria-label="Previous product">
           <ChevronLeftIcon />
@@ -135,11 +149,15 @@ function FeaturedItems({ items }) {
         {/* Cards Track */}
         <div className="carousel-track">
           {productList.map((item, index) => {
-            const offset = index - activeIndex;
-            const absOffset = Math.abs(offset);
+            const n = productList.length;
+            let offset = index - activeIndex;
+            const half = Math.floor(n / 2);
+            if (offset > half) offset -= n;
+            if (offset < -half) offset += n;
+
             const isActive = offset === 0;
 
-            // Styles based on offset from active card
+            // Styles based on circular offset from active card
             let transformStyle = '';
             let opacityStyle = 1;
             let zIndexStyle = 1;
@@ -157,13 +175,13 @@ function FeaturedItems({ items }) {
               zIndexStyle = 5;
               opacityStyle = 0.82;
             } else if (offset < -1) {
-              transformStyle = `translateX(${-180 + (offset + 2) * 40}%) scale(0.78)`;
+              transformStyle = `translateX(${-185 + (offset + 2) * 35}%) scale(0.76)`;
               zIndexStyle = 1;
-              opacityStyle = 0.4;
+              opacityStyle = 0.35;
             } else if (offset > 1) {
-              transformStyle = `translateX(${180 + (offset - 2) * 40}%) scale(0.78)`;
+              transformStyle = `translateX(${185 + (offset - 2) * 35}%) scale(0.76)`;
               zIndexStyle = 1;
-              opacityStyle = 0.4;
+              opacityStyle = 0.35;
             }
 
             const badgeText = item.badge || (index % 2 === 0 ? "BEST SELLER" : "NEW");
@@ -276,6 +294,29 @@ function FeaturedItems({ items }) {
         ))}
       </div>
 
+      {showButton !== false && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+          <button 
+            className="explore-more-btn"
+            onClick={() => navigate('/about')}
+            style={{
+              padding: '16px 48px',
+              borderRadius: '50px',
+              color: '#063b28',
+              backgroundColor: '#ffffff',
+              border: '2px solid #063b28',
+              cursor: 'pointer',
+              fontWeight: '800',
+              fontSize: '1.05rem',
+              boxShadow: '0 8px 20px rgba(6, 59, 40, 0.08)',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            Explore More Products →
+          </button>
+        </div>
+      )}
+
       {/* Embedded CSS for 3D Coverflow & Product Cards */}
       <style>{`
         .featured-carousel-section {
@@ -322,7 +363,7 @@ function FeaturedItems({ items }) {
           position: relative;
           max-width: 1300px;
           margin: 0 auto;
-          height: 520px;
+          height: 370px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -340,11 +381,11 @@ function FeaturedItems({ items }) {
         /* Card Container */
         .coverflow-card {
           position: absolute;
-          width: 290px;
+          width: 260px;
           background: #ffffff;
-          border-radius: 24px;
-          padding: 20px;
-          box-shadow: 0 12px 35px rgba(6, 59, 40, 0.08);
+          border-radius: 20px;
+          padding: 14px 16px;
+          box-shadow: 0 10px 30px rgba(6, 59, 40, 0.08);
           border: 1px solid #eef4f1;
           cursor: pointer;
           user-select: none;
@@ -352,7 +393,7 @@ function FeaturedItems({ items }) {
         }
 
         .card-active {
-          box-shadow: 0 25px 60px rgba(6, 59, 40, 0.18) !important;
+          box-shadow: 0 20px 50px rgba(6, 59, 40, 0.18) !important;
           border-color: #cce4db !important;
         }
 
@@ -361,13 +402,13 @@ function FeaturedItems({ items }) {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 12px;
+          margin-bottom: 8px;
         }
 
         .card-badge {
-          font-size: 0.7rem;
+          font-size: 0.65rem;
           font-weight: 800;
-          padding: 5px 12px;
+          padding: 4px 10px;
           border-radius: 50px;
           letter-spacing: 0.5px;
           text-transform: uppercase;
@@ -376,8 +417,8 @@ function FeaturedItems({ items }) {
         .heart-btn {
           background: #f8fbf9;
           border: 1px solid #e2e8e5;
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -396,21 +437,21 @@ function FeaturedItems({ items }) {
         /* Image Box */
         .card-image-box {
           width: 100%;
-          height: 190px;
+          height: 125px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 10px;
+          margin-bottom: 8px;
           background: #fcfdfe;
-          border-radius: 18px;
-          padding: 10px;
+          border-radius: 14px;
+          padding: 6px;
         }
 
         .card-image-box img {
           max-width: 100%;
           max-height: 100%;
           object-fit: contain;
-          filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+          filter: drop-shadow(0 8px 12px rgba(0,0,0,0.08));
           transition: transform 0.3s ease;
         }
 
@@ -422,19 +463,19 @@ function FeaturedItems({ items }) {
         .card-image-dots {
           display: flex;
           justify-content: center;
-          gap: 6px;
-          margin-bottom: 16px;
+          gap: 5px;
+          margin-bottom: 10px;
         }
 
         .card-image-dots .dot {
-          width: 6px;
-          height: 6px;
+          width: 5px;
+          height: 5px;
           border-radius: 50%;
           background: #d5e2dd;
         }
 
         .card-image-dots .dot-active {
-          width: 18px;
+          width: 14px;
           border-radius: 10px;
           background: #855b28;
         }
@@ -442,46 +483,46 @@ function FeaturedItems({ items }) {
         /* Info Section */
         .card-title {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 1.2rem;
+          font-size: 1.05rem;
           font-weight: 800;
           color: #063b28;
-          margin: 0 0 6px;
-          line-height: 1.25;
+          margin: 0 0 3px;
+          line-height: 1.2;
         }
 
         .card-description {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 0.85rem;
+          font-size: 0.78rem;
           color: #597a6e;
-          margin: 0 0 14px;
-          line-height: 1.4;
+          margin: 0 0 8px;
+          line-height: 1.35;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
-          height: 2.8em;
+          height: 2.6em;
         }
 
         .card-rating {
           display: flex;
           align-items: center;
-          gap: 5px;
-          margin-bottom: 16px;
+          gap: 4px;
+          margin-bottom: 10px;
         }
 
         .card-rating .star {
           color: #f7cb2c;
-          font-size: 1.1rem;
+          font-size: 0.95rem;
         }
 
         .rating-num {
           font-weight: 800;
-          font-size: 0.95rem;
+          font-size: 0.85rem;
           color: #063b28;
         }
 
         .reviews-count {
-          font-size: 0.82rem;
+          font-size: 0.75rem;
           color: #7b8e87;
         }
 
@@ -490,19 +531,19 @@ function FeaturedItems({ items }) {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 12px;
+          padding-top: 8px;
           border-top: 1px solid #f0f6f4;
         }
 
         .card-price {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 1.25rem;
+          font-size: 1.1rem;
           font-weight: 900;
           color: #063b28;
         }
 
         .card-price small {
-          font-size: 0.8rem;
+          font-size: 0.72rem;
           color: #597a6e;
           font-weight: 600;
           margin-left: 2px;
@@ -513,30 +554,30 @@ function FeaturedItems({ items }) {
           background-color: #063b28;
           color: #ffffff;
           border: none;
-          padding: 9px 20px;
+          padding: 7px 16px;
           border-radius: 50px;
           font-weight: 700;
-          font-size: 0.88rem;
+          font-size: 0.8rem;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 5px;
           cursor: pointer;
-          box-shadow: 0 6px 16px rgba(6, 59, 40, 0.25);
+          box-shadow: 0 5px 14px rgba(6, 59, 40, 0.22);
           transition: all 0.2s ease;
         }
 
         .btn-rent-now:hover {
           background-color: #042b1d;
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(6, 59, 40, 0.32);
+          box-shadow: 0 7px 18px rgba(6, 59, 40, 0.28);
         }
 
         .btn-cart-icon {
           background-color: #f0f6f4;
           color: #063b28;
           border: 1px solid #d5e6e0;
-          width: 38px;
-          height: 38px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -609,6 +650,13 @@ function FeaturedItems({ items }) {
           width: 14px;
           height: 14px;
           background: #855b28;
+        }
+
+        .explore-more-btn:hover {
+          background-color: #063b28 !important;
+          color: #ffffff !important;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 25px rgba(6, 59, 40, 0.2) !important;
         }
 
         /* Responsive Breakpoints */

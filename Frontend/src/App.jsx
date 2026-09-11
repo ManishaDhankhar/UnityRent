@@ -59,7 +59,7 @@ function App() {
           <Route path="/edit-product/:id" element={<UpdateProduct refreshProducts={fetchProducts} />} />
 
           {/* 2. This is the ABOUT/ShowProduct page */}
-          <Route path="/about" element={<About allProducts={products} />} />
+          <Route path="/about" element={<About allProducts={products} allServices={services} />} />
 
           <Route path="/allservices" element={<ServicesPage allServices={services} />} />
           <Route path="/service/:id" element={<ServiceDetails allServices={services} />} />

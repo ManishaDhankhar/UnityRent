@@ -343,7 +343,7 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
           position: relative;
           max-width: 1300px;
           margin: 0 auto;
-          height: 520px;
+          height: 370px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -361,11 +361,11 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
         /* Card Container */
         .coverflow-card {
           position: absolute;
-          width: 290px;
+          width: 260px;
           background: #ffffff;
-          border-radius: 24px;
-          padding: 20px;
-          box-shadow: 0 12px 35px rgba(6, 59, 40, 0.08);
+          border-radius: 20px;
+          padding: 14px 16px;
+          box-shadow: 0 10px 30px rgba(6, 59, 40, 0.08);
           border: 1px solid #eef4f1;
           cursor: pointer;
           user-select: none;
@@ -373,7 +373,7 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
         }
 
         .card-active {
-          box-shadow: 0 25px 60px rgba(6, 59, 40, 0.18) !important;
+          box-shadow: 0 20px 50px rgba(6, 59, 40, 0.18) !important;
           border-color: #cce4db !important;
         }
 
@@ -382,13 +382,13 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 12px;
+          margin-bottom: 8px;
         }
 
         .card-badge {
-          font-size: 0.7rem;
+          font-size: 0.65rem;
           font-weight: 800;
-          padding: 5px 12px;
+          padding: 4px 10px;
           border-radius: 50px;
           letter-spacing: 0.5px;
           text-transform: uppercase;
@@ -397,8 +397,8 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
         .heart-btn {
           background: #f8fbf9;
           border: 1px solid #e2e8e5;
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -417,13 +417,13 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
         /* Image Box */
         .card-image-box {
           width: 100%;
-          height: 190px;
+          height: 125px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 10px;
+          margin-bottom: 8px;
           background: #fcfdfe;
-          border-radius: 18px;
+          border-radius: 14px;
           overflow: hidden;
         }
 
@@ -442,19 +442,19 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
         .card-image-dots {
           display: flex;
           justify-content: center;
-          gap: 6px;
-          margin-bottom: 16px;
+          gap: 5px;
+          margin-bottom: 10px;
         }
 
         .card-image-dots .dot {
-          width: 6px;
-          height: 6px;
+          width: 5px;
+          height: 5px;
           border-radius: 50%;
           background: #d5e2dd;
         }
 
         .card-image-dots .dot-active {
-          width: 18px;
+          width: 14px;
           border-radius: 10px;
           background: #063b28;
         }
@@ -462,41 +462,44 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
         /* Info Section */
         .card-title {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 1.2rem;
+          font-size: 1.05rem;
           font-weight: 800;
           color: #063b28;
-          margin: 0 0 4px;
-          line-height: 1.25;
+          margin: 0 0 3px;
+          line-height: 1.2;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .card-provider {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 0.85rem;
+          font-size: 0.78rem;
           color: #597a6e;
-          margin: 0 0 14px;
+          margin: 0 0 8px;
           font-weight: 600;
         }
 
         .card-rating {
           display: flex;
           align-items: center;
-          gap: 5px;
-          margin-bottom: 16px;
+          gap: 4px;
+          margin-bottom: 10px;
         }
 
         .card-rating .star {
           color: #f7cb2c;
-          font-size: 1.1rem;
+          font-size: 0.95rem;
         }
 
         .rating-num {
           font-weight: 800;
-          font-size: 0.95rem;
+          font-size: 0.85rem;
           color: #063b28;
         }
 
         .reviews-count {
-          font-size: 0.82rem;
+          font-size: 0.75rem;
           color: #7b8e87;
         }
 
@@ -505,19 +508,19 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 12px;
+          padding-top: 8px;
           border-top: 1px solid #f0f6f4;
         }
 
         .card-price {
           font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 1.25rem;
+          font-size: 1.1rem;
           font-weight: 900;
           color: #063b28;
         }
 
         .card-price small {
-          font-size: 0.8rem;
+          font-size: 0.72rem;
           color: #597a6e;
           font-weight: 600;
           margin-left: 2px;
@@ -528,30 +531,30 @@ const ServicesSection = ({ services, title, loading, showButton }) => {
           background-color: #063b28;
           color: #ffffff;
           border: none;
-          padding: 9px 20px;
+          padding: 7px 16px;
           border-radius: 50px;
           font-weight: 700;
-          font-size: 0.88rem;
+          font-size: 0.8rem;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 5px;
           cursor: pointer;
-          box-shadow: 0 6px 16px rgba(6, 59, 40, 0.25);
+          box-shadow: 0 5px 14px rgba(6, 59, 40, 0.22);
           transition: all 0.2s ease;
         }
 
         .btn-rent-now:hover {
           background-color: #042b1d;
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(6, 59, 40, 0.32);
+          box-shadow: 0 7px 18px rgba(6, 59, 40, 0.28);
         }
 
         .btn-cart-icon {
           background-color: #f0f6f4;
           color: #063b28;
           border: 1px solid #d5e6e0;
-          width: 38px;
-          height: 38px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           display: flex;
           align-items: center;

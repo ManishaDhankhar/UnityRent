@@ -44,10 +44,10 @@ function Navbar({ refreshProducts }) {
           <Box className="navbar-brand" onClick={() => navigate('/')}>
             <div className="brand-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 3H5.5L7.2 14.3C7.3 15.1 8 15.7 8.8 15.7H18.5C19.3 15.7 20 15.1 20.1 14.3L21.5 6.5H6.5" stroke="#063b28" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="9" cy="19.5" r="1.5" fill="#063b28"/>
-                <circle cx="18" cy="19.5" r="1.5" fill="#063b28"/>
-                <path d="M11 10L13 12L17 8" stroke="#063b28" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 3H5.5L7.2 14.3C7.3 15.1 8 15.7 8.8 15.7H18.5C19.3 15.7 20 15.1 20.1 14.3L21.5 6.5H6.5" stroke="#063b28" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="9" cy="19.5" r="1.5" fill="#063b28" />
+                <circle cx="18" cy="19.5" r="1.5" fill="#063b28" />
+                <path d="M11 10L13 12L17 8" stroke="#063b28" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <Typography variant="h6" className="brand-title">
@@ -77,7 +77,7 @@ function Navbar({ refreshProducts }) {
             </Menu>
 
             <Button className="nav-link-btn" onClick={() => navigate('/about?filter=deals')}>
-              Deals
+              Browse All
             </Button>
 
             <Button className="nav-link-btn" onClick={() => navigate('/about?filter=new')}>
