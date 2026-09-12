@@ -1,6 +1,5 @@
-import { useCallback,useEffect, useState } from 'react'
-import {  Routes, Route } from 'react-router-dom';
-import axios from 'axios';
+import { useCallback, useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Navbar from './Landing_Page/Navbar'
@@ -27,7 +26,7 @@ function App() {
 
   // Use useCallback to keep the function reference stable
   const fetchProducts = useCallback(() => {
-    fetch("http://localhost:8080/api/products")
+    fetch("https://unityrent.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => {
         // Sort by newest first so your new product appears at the top
@@ -38,7 +37,7 @@ function App() {
   }, []);
 
   const fetchServices = useCallback(() => {
-    fetch("http://localhost:8080/services")
+    fetch("https://unityrent.onrender.com/services")
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log("Service Fetch Error:", err));
@@ -55,33 +54,27 @@ function App() {
       <div className="App">
         {/* If you have a Navbar, put it here so it shows on every page */}
         <Navbar refreshProducts={fetchProducts}></Navbar>
-        
-        <ToastContainer/>
 
         <Routes>
           {/* 1. This is your HOME page (the default view) */}
-          <Route path="/" element={<HomePage allProducts={products.slice(0,3)} allServices={services.slice(0,3)}/>} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/email-verify" element={<EmailVerify/>}/>
-          <Route path="/reset-password" element={<ResetPassword/>}/>
-          
+          <Route path="/" element={<HomePage allProducts={products.slice(0, 7)} allServices={services.slice(0, 3)} />} />
 
           <Route path="/add-product" element={<AddProductForm refreshProducts={fetchProducts} />} />
-          <Route path="/edit-product/:id"  element={<UpdateProduct refreshProducts={fetchProducts} />} />
+          <Route path="/edit-product/:id" element={<UpdateProduct refreshProducts={fetchProducts} />} />
 
           {/* 2. This is the ABOUT/ShowProduct page */}
-          <Route path="/about" element={<About allProducts={products}/>} />
-          
+          <Route path="/about" element={<About allProducts={products} allServices={services} />} />
+
           <Route path="/allservices" element={<ServicesPage allServices={services} />} />
           <Route path="/service/:id" element={<ServiceDetails allServices={services} />} />
           <Route path="/bookservice/:id" element={<BookService allServices={services} />} />
-         
+
           {/* 3. Optional: Add more routes here later */}
           {/* Add this inside the <Routes> section in App.js */}
-        <Route path="/login" element={<div style={{marginTop: '100px', textAlign: 'center'}}>Login Page Coming Soon!</div>} />
+          <Route path="/login" element={<div style={{ marginTop: '100px', textAlign: 'center' }}>Login Page Coming Soon!</div>} />
           <Route path="/cart" element={<MyCart />} />
-          <Route path='/item/:id' element={<IteamDetails refreshProducts={fetchProducts}/>} />
-          <Route path='/book/:id' element={<BookItem/>} />
+          <Route path='/item/:id' element={<IteamDetails refreshProducts={fetchProducts} />} />
+          <Route path='/book/:id' element={<BookItem />} />
         </Routes>
 
         {/* If you have a Footer, put it here */}

@@ -72,8 +72,8 @@ const UpdateProductForm=({refreshProducts})=>{
         return (
     <Container maxWidth="sm" sx={{ py: 5 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: '#002d5b' }}>
-          Edit Your Listing
+        <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', color: '#063b28' }}>
+          Update Product
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit}>
@@ -104,7 +104,7 @@ const UpdateProductForm=({refreshProducts})=>{
 
           <Box sx={{ mt: 4, display: 'flex', gap: 2 }}>
             <Button variant="outlined" fullWidth onClick={() => navigate(-1)}>Cancel</Button>
-            <Button type="submit" variant="contained" fullWidth sx={{ bgcolor: '#002d5b' }}>Save Changes</Button>
+            <Button type="submit" variant="contained" fullWidth sx={{ bgcolor: '#063b28', '&:hover': { bgcolor: '#042b1d' } }}>Save Changes</Button>
           </Box>
         </Box>
       </Paper>
