@@ -3,6 +3,8 @@ import { Button, TextField, MenuItem, Container, Paper, Typography, Box, Circula
 import { useNavigate,useParams } from 'react-router-dom';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const UpdateProductForm=({refreshProducts})=>{
         const {id}=useParams();
         const navigate=useNavigate();
@@ -18,7 +20,7 @@ const UpdateProductForm=({refreshProducts})=>{
             condition: ''
         });
         useEffect(()=>{
-            axios.get(`http://localhost:8080/item/${id}`)
+            axios.get(`${API_BASE_URL}/item/${id}`)
             .then((res)=>{
                 const data=res.data;
              setFormData({
@@ -55,7 +57,7 @@ const UpdateProductForm=({refreshProducts})=>{
         }
     };
             try{
-           await axios.put(`http://localhost:8080/item/${id}`,updatedPayload);
+           await axios.put(`${API_BASE_URL}/item/${id}`,updatedPayload);
            alert("Product Updated Successfully");
 
            if(refreshProducts)refreshProducts();

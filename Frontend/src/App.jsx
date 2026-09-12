@@ -15,6 +15,8 @@ import About from './ShowProduct/About';
 import BookItem from './Landing_Page/Home/BookItem';
 import Footer from './Landing_Page/Footer';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 function App() {
 
   const [products, setProducts] = useState([]);
@@ -22,7 +24,7 @@ function App() {
 
   // Use useCallback to keep the function reference stable
   const fetchProducts = useCallback(() => {
-    fetch("http://localhost:8080/api/products")
+    fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         // Sort by newest first so your new product appears at the top
@@ -33,7 +35,7 @@ function App() {
   }, []);
 
   const fetchServices = useCallback(() => {
-    fetch("http://localhost:8080/services")
+    fetch(`${API_BASE_URL}/services`)
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log("Service Fetch Error:", err));

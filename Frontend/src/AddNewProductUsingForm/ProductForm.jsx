@@ -3,15 +3,16 @@ import { Button, TextField, MenuItem, Container, Paper, Typography, Box } from '
 import { useNavigate } from 'react-router-dom'; // To redirect after saving
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const AddProductForm = ({ refreshProducts }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    category: 'Academic',
+    category: '',
     title: '',
     description: '',
     image: '',
-    ratePerDay: '',
-    securityDeposit: '',
+    pricing: { ratePerDay: '', securityDeposit: '' },
     locationTag: '',
     condition: 'Good'
   });
@@ -20,7 +21,7 @@ const AddProductForm = ({ refreshProducts }) => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post('http://localhost:8080/newProduct', formData);
+      await axios.post(`${API_BASE_URL}/newProduct`, formData);
       alert("Product Listed Successfully!");
       
       // 1. Refresh the data in App.js

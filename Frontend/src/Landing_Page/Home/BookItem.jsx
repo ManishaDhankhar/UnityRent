@@ -14,6 +14,8 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 import cameraImg from '../../assets/hero_camera.jpg';
 import headphonesImg from '../../assets/hero_headphones.jpg';
 import ironImg from '../../assets/hero_iron.jpg';
@@ -45,7 +47,7 @@ const BookingPage = () => {
       return;
     }
 
-    fetch(`http://localhost:8080/item/${id}`)
+    fetch(`${API_BASE_URL}/item/${id}`)
       .then(res => res.json())
       .then(data => {
         if (data && data.title) {

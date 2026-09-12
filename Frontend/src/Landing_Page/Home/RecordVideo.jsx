@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
+
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 import { useReactMediaRecorder } from "react-media-recorder";
 import { Box, Button, Typography } from '@mui/material'; 
 
@@ -39,7 +41,7 @@ const RecordView = () => {
     // 3. Send to your Backend
     // Replace 'BOOKING_ID_HERE' with your actual dynamic ID
     const res = await axios.post(
-      `http://localhost:8080/item/verify-return/${id}`, 
+      `${API_BASE_URL}/item/verify-return/${id}`, 
       formData,
       { headers: { 'Content-Type': 'multipart/form-data' } }
     );

@@ -21,6 +21,8 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import StarIcon from '@mui/icons-material/Star';
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 import cameraImg from '../../assets/hero_camera.jpg';
 import headphonesImg from '../../assets/hero_headphones.jpg';
 import ironImg from '../../assets/hero_iron.jpg';
@@ -107,7 +109,7 @@ function ItemDetail({ refreshProduct }) {
       return;
     }
 
-    fetch(`http://localhost:8080/item/${id}`)
+    fetch(`${API_BASE_URL}/item/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.title) {
@@ -145,7 +147,7 @@ function ItemDetail({ refreshProduct }) {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this listing?")) {
       try {
-        await axios.delete(`http://localhost:8080/item/${id}`);
+        await axios.delete(`${API_BASE_URL}/item/${id}`);
         alert("Product deleted successfully");
         if (refreshProduct) refreshProduct();
         navigate('/');

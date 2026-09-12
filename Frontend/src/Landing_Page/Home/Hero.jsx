@@ -8,6 +8,8 @@ import mouseImg from '../../assets/hero_mouse.jpg';
 import bikeImg from '../../assets/hero_bicycle.jpg';
 import './Hero.css';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const DEFAULT_HERO = {
   title: "Rent What You Need.\nEarn From What You Have.",
   subtitle: "UnityRent connects people within campuses to rent, lend, and share items with ease. List things you're not using, discover what you need nearby, and turn unused resources into extra income–all within a trusted local community.",
@@ -19,7 +21,7 @@ const Hero = () => {
   const [heroData, setHeroData] = useState(DEFAULT_HERO);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/hero')
+    axios.get(`${API_BASE_URL}/api/hero`)
       .then(response => {
         if (response.data && response.data.title) {
           setHeroData(response.data);

@@ -70,6 +70,8 @@
 
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 // Keeping this here so you don't have to delete it, 
 // but we won't call it in the bypass logic.
 const loadRazorpayScript = () => {
@@ -91,7 +93,7 @@ export const processPayment = async (bookingData, navigate) => {
     }
 
     try {
-        const response = await axios.post("http://localhost:8080/api/booking/new", bookingData);
+        const response = await axios.post(`${API_BASE_URL}/api/booking/new`, bookingData);
         const { bookingId, amountToPay, razorpayOrderId } = response.data;
 
         // --- BYPASS LOGIC START ---
