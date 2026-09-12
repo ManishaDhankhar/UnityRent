@@ -120,15 +120,30 @@ function Navbar({ refreshProducts }) {
               startIcon={<PersonOutlineIcon />}
               onClick={(e) => setAnchorElAccount(e.currentTarget)}
             >
-              Account
+              {localStorage.getItem('userName') || 'Account'}
             </Button>
             <Menu
               anchorEl={anchorElAccount}
               open={Boolean(anchorElAccount)}
               onClose={() => setAnchorElAccount(null)}
             >
-              <MenuItem onClick={() => { setAnchorElAccount(null); navigate('/login'); }}>Login / Sign Up</MenuItem>
-              <MenuItem onClick={() => { setAnchorElAccount(null); navigate('/cart'); }}>My Rentals</MenuItem>
+              {localStorage.getItem('isLoggedIn') === 'true' ? (
+                [
+                  <MenuItem key="cart" onClick={() => { setAnchorElAccount(null); navigate('/cart'); }}>My Rentals</MenuItem>,
+                  <MenuItem key="logout" onClick={() => {
+                    setAnchorElAccount(null);
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userName');
+                    localStorage.removeItem('userEmail');
+                    navigate('/login');
+                  }}>Logout</MenuItem>
+                ]
+              ) : (
+                [
+                  <MenuItem key="login" onClick={() => { setAnchorElAccount(null); navigate('/login'); }}>Login / Sign Up</MenuItem>,
+                  <MenuItem key="cart" onClick={() => { setAnchorElAccount(null); navigate('/cart'); }}>My Rentals</MenuItem>
+                ]
+              )}
             </Menu>
 
             {/* Cart */}

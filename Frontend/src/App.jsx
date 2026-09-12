@@ -14,6 +14,7 @@ import BookService from './Pages/BookService';
 import About from './ShowProduct/About';
 import BookItem from './Landing_Page/Home/BookItem';
 import Footer from './Landing_Page/Footer';
+import Login from './Landing_Page/SignIn/Login';
 
 const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -67,9 +68,8 @@ function App() {
           <Route path="/service/:id" element={<ServiceDetails allServices={services} />} />
           <Route path="/bookservice/:id" element={<BookService allServices={services} />} />
 
-          {/* 3. Optional: Add more routes here later */}
-          {/* Add this inside the <Routes> section in App.js */}
-          <Route path="/login" element={<div style={{ marginTop: '100px', textAlign: 'center' }}>Login Page Coming Soon!</div>} />
+          {/* 3. Authentication & Cart Routes */}
+          <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<MyCart />} />
           <Route path='/item/:id' element={<IteamDetails refreshProducts={fetchProducts} />} />
           <Route path='/book/:id' element={<BookItem />} />
