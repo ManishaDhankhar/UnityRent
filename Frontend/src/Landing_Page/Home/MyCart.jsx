@@ -131,7 +131,7 @@ function MyCart() {
               border: '1px solid #f0f0f0' 
             }}
           >
-            <div style={{ backgroundColor: '#002d5b', borderRadius: '20px', height: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginBottom: '15px' }}>
+            <div style={{ backgroundColor: '#063b28', borderRadius: '20px', height: '180px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', marginBottom: '15px' }}>
               <img 
                 src={booking.product?.image} 
                 alt={booking.product?.title} 

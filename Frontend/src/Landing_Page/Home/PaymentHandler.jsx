@@ -116,7 +116,7 @@ export const processPayment = async (bookingData, navigate) => {
                 contact: bookingData.renterPhone,
             },
             theme: {
-                color: "#002d5b",
+                color: "#063b28",
             },
         };
 
