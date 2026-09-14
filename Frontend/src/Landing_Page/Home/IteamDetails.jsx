@@ -108,7 +108,7 @@ function ItemDetail({ refreshProduct }) {
       return;
     }
 
-    fetch(`https://unityrent.onrender.com/item/${id}`)
+    fetch(`${BACKEND_URL}/item/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.title) {
@@ -146,7 +146,7 @@ function ItemDetail({ refreshProduct }) {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this listing?")) {
       try {
-        await axios.delete(`https://unityrent.onrender.com/item/${id}`);
+        await axios.delete(`${BACKEND_URL}/item/${id}`);
         alert("Product deleted successfully");
         if (refreshProduct) refreshProduct();
         navigate('/');

@@ -18,6 +18,7 @@ import Login from './Landing_Page/SignIn/Login';
 import EmailVerify from './Landing_Page/SignIn/EmailVerify';
 import ResetPassword from './Landing_Page/SignIn/ResetPassword';
  import { ToastContainer } from 'react-toastify';
+import { BACKEND_URL } from './config';
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
 
   // Use useCallback to keep the function reference stable
   const fetchProducts = useCallback(() => {
-    fetch("https://unityrent.onrender.com/api/products")
+    fetch(`${BACKEND_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         // Sort by newest first so your new product appears at the top
@@ -37,7 +38,7 @@ function App() {
   }, []);
 
   const fetchServices = useCallback(() => {
-    fetch("https://unityrent.onrender.com/services")
+    fetch(`${BACKEND_URL}/services`)
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log("Service Fetch Error:", err));

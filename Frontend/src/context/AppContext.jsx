@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { BACKEND_URL } from "../config";
 
 export const AppContext = createContext()
 
@@ -12,7 +13,7 @@ export const AppContextProvider = (props)=>{
     // and the user does not logout
     axios.defaults.withCredentials = true
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL
+    const backendUrl = BACKEND_URL
     const [isLoggedin, setIsLoggedin] = useState(false)
     const [userData, setUserData] = useState(null)
 

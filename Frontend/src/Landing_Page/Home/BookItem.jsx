@@ -14,6 +14,8 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
+import { BACKEND_URL } from '../../config';
+
 import cameraImg from '../../assets/hero_camera.jpg';
 import headphonesImg from '../../assets/hero_headphones.jpg';
 import ironImg from '../../assets/hero_iron.jpg';
@@ -45,7 +47,7 @@ const BookingPage = () => {
       return;
     }
 
-    fetch(`https://unityrent.onrender.com/item/${id}`)
+    fetch(`${BACKEND_URL}/item/${id}`)
       .then(res => res.json())
       .then(data => {
         if (data && data.title) {

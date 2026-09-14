@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextField, MenuItem, Container, Paper, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // To redirect after saving
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
 
 const AddProductForm = ({ refreshProducts }) => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const AddProductForm = ({ refreshProducts }) => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post(`${BACEKND_URL}/newProduct`, formData);
+      await axios.post(`${BACKEND_URL}/newProduct`, formData);
       alert("Product Listed Successfully!");
       
       // 1. Refresh the data in App.js

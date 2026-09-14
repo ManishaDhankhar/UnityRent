@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BACKEND_URL } from '../../config';
 import cameraImg from '../../assets/hero_camera.jpg';
 import headphonesImg from '../../assets/hero_headphones.jpg';
 import ironImg from '../../assets/hero_iron.jpg';
@@ -19,7 +20,7 @@ const Hero = () => {
   const [heroData, setHeroData] = useState(DEFAULT_HERO);
 
   useEffect(() => {
-    axios.get('https://unityrent.onrender.com/api/hero')
+    axios.get(`${BACKEND_URL}/api/hero`)
       .then(response => {
         if (response.data && response.data.title) {
           setHeroData(response.data);
